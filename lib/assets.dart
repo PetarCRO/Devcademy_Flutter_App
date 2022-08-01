@@ -7,4 +7,6 @@ class _Icons {
   String devcademy = 'assets/icons/devcademy.png';
 }
 
-class _Images {}
+class _Images {
+  String london = 'assets/images/London.png';
+}

@@ -7,6 +7,11 @@ class ThemeColors {
   static Color mint200 = const Color(0xffB7F2EF);
   static Color mint100 = const Color(0xffE9FBFA);
   static Color teal800 = const Color(0xff1A3440);
+  static Color coral400 = const Color(0xfff3b08e);
+  static Color black = const Color(0xff000000);
+  static Color white = const Color(0xffffffff);
+  static Color gray300 = const Color(0xffadadad);
+  static Color gray500 = const Color(0xff7c7c7c);
 //TODO: add all colors
 
 }
