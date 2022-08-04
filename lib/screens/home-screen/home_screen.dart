@@ -7,8 +7,10 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return MaterialApp(
+      theme: theme,
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
         backgroundColor: ThemeColors.white,
         appBar: AppBar(
           elevation: 5.0,
@@ -18,7 +20,11 @@ class HomeScreen extends StatelessWidget {
             children: [
               Text(
                 'Staycation',
-                style: TextStyle(color: ThemeColors.teal800, fontSize: 20),
+                style: textTheme.headline6!.merge(
+                  TextStyle(
+                    color: ThemeColors.teal800,
+                  ),
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -42,33 +48,59 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
-        body: Column(
-          children: [
-            Row(
-              children: [
-                Text(
-                  "Popular locations",
-                  style: TextStyle(color: ThemeColors.black, fontSize: 24),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Popular locations',
+                      style: textTheme.headline5,
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'VIEW MORE',
+                        style: textTheme.button!.merge(
+                          TextStyle(
+                            color: ThemeColors.mint400,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Homes guests love',
+                            style: textTheme.headline5,
+                          ),
+                          TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              'VIEW MORE',
+                              style: textTheme.button!.merge(
+                                TextStyle(
+                                  color: ThemeColors.mint400,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  "VIEW MORE",
-                  style: TextStyle(color: ThemeColors.mint400, fontSize: 13),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Text(
-                  "Homes guests love",
-                  style: TextStyle(color: ThemeColors.black, fontSize: 24),
-                ),
-                Text(
-                  "VIEW MORE",
-                  style: TextStyle(color: ThemeColors.mint400, fontSize: 13),
-                ),
-              ],
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
