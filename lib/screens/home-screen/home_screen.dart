@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:devcademy_flutter/theme.dart';
+import 'package:devcademy_flutter/assets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,7 +16,10 @@ class HomeScreen extends StatelessWidget {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Staycation'),
+              Text(
+                'Staycation',
+                style: TextStyle(color: ThemeColors.teal800, fontSize: 20),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -23,14 +27,14 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () {},
                     icon: Icon(
                       Icons.search,
-                      color: ThemeColors.black,
+                      color: ThemeColors.teal800,
                     ),
                   ),
                   IconButton(
                     onPressed: () {},
                     icon: Icon(
                       Icons.more_vert,
-                      color: ThemeColors.black,
+                      color: ThemeColors.teal800,
                     ),
                   ),
                 ],
@@ -40,137 +44,30 @@ class HomeScreen extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text(
-                    'Popular locations',
-                    style: TextStyle(fontSize: 24.0),
-                  ),
-                  Text(
-                    'VIEW MORE',
-                    style:
-                        TextStyle(fontSize: 13.0, color: ThemeColors.mint400),
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text(
-                    'Home guests love',
-                    style: TextStyle(fontSize: 24.0),
-                  ),
-                  Text(
-                    'VIEW MORE',
-                    style:
-                        TextStyle(fontSize: 13.0, color: ThemeColors.mint400),
-                  )
-                ],
-              ),
+            Row(
+              children: [
+                Text(
+                  "Popular locations",
+                  style: TextStyle(color: ThemeColors.black, fontSize: 24),
+                ),
+                Text(
+                  "VIEW MORE",
+                  style: TextStyle(color: ThemeColors.mint400, fontSize: 13),
+                ),
+              ],
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Column(
-                  children: [
-                    Text(
-                      'Sugar & Spice Apartments',
-                      style: TextStyle(fontSize: 16.0),
-                    ),
-                    Text(
-                      'Split',
-                      style:
-                          TextStyle(color: ThemeColors.gray300, fontSize: 14.0),
-                    ),
-                    Text(
-                      'EUR 75',
-                      style: TextStyle(fontSize: 16.0),
-                    ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.star,
-                          color: ThemeColors.coral400,
-                          size: 16.0,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: ThemeColors.coral400,
-                          size: 16.0,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: ThemeColors.coral400,
-                          size: 16.0,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: ThemeColors.coral400,
-                          size: 16.0,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: ThemeColors.coral400,
-                          size: 16.0,
-                        ),
-                      ],
-                    )
-                  ],
+                Text(
+                  "Homes guests love",
+                  style: TextStyle(color: ThemeColors.black, fontSize: 24),
                 ),
-                Column(
-                  children: [
-                    Text(
-                      'Lemon Luxury Apartments',
-                      style: TextStyle(fontSize: 16.0),
-                    ),
-                    Text(
-                      'Saint Tropez',
-                      style:
-                          TextStyle(color: ThemeColors.gray300, fontSize: 14.0),
-                    ),
-                    Text(
-                      'EUR 174',
-                      style: TextStyle(fontSize: 16.0),
-                    ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.star,
-                          color: ThemeColors.coral400,
-                          size: 16.0,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: ThemeColors.coral400,
-                          size: 16.0,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: ThemeColors.coral400,
-                          size: 16.0,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: ThemeColors.coral400,
-                          size: 16.0,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: ThemeColors.coral400,
-                          size: 16.0,
-                        ),
-                      ],
-                    )
-                  ],
-                )
+                Text(
+                  "VIEW MORE",
+                  style: TextStyle(color: ThemeColors.mint400, fontSize: 13),
+                ),
               ],
-            )
+            ),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -189,6 +86,63 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class CardWidget extends StatelessWidget {
+  const CardWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Column(
+        children: [
+          Text(
+            'Sugar & Spice Apartments',
+            style: TextStyle(fontSize: 16.0),
+          ),
+          Text(
+            'Split',
+            style: TextStyle(color: ThemeColors.gray300, fontSize: 14.0),
+          ),
+          Text(
+            'EUR 75',
+            style: TextStyle(fontSize: 16.0),
+          ),
+          Row(
+            children: [
+              Icon(
+                Icons.star,
+                color: ThemeColors.coral400,
+                size: 16.0,
+              ),
+              Icon(
+                Icons.star,
+                color: ThemeColors.coral400,
+                size: 16.0,
+              ),
+              Icon(
+                Icons.star,
+                color: ThemeColors.coral400,
+                size: 16.0,
+              ),
+              Icon(
+                Icons.star,
+                color: ThemeColors.coral400,
+                size: 16.0,
+              ),
+              Icon(
+                Icons.star,
+                color: ThemeColors.coral400,
+                size: 16.0,
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
