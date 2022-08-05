@@ -72,28 +72,28 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Homes guests love',
-                            style: textTheme.headline5,
+                  ],
+                ),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Homes guests love',
+                      style: textTheme.headline5,
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'VIEW MORE',
+                        style: textTheme.button!.merge(
+                          TextStyle(
+                            color: ThemeColors.mint400,
                           ),
-                          TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              'VIEW MORE',
-                              style: textTheme.button!.merge(
-                                TextStyle(
-                                  color: ThemeColors.mint400,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
                     ),
                   ],
