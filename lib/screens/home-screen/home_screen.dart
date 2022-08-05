@@ -1,12 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:devcademy_flutter/theme.dart';
 import 'package:devcademy_flutter/assets.dart';
+import '../homes.dart';
+import '../popularLocations.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final List<PopularLocations> popularLocations = [
+      PopularLocations(
+          image: 'image', location: 'London', numberOfProperties: 5102),
+      PopularLocations(
+          image: 'image', location: 'Tokyo', numberOfProperties: 11251),
+      PopularLocations(
+          image: 'image', location: 'Barcelona', numberOfProperties: 21104),
+      PopularLocations(
+          image: 'image', location: 'New York', numberOfProperties: 1381),
+    ];
+    final List<Homes> homes = [
+      Homes(
+          image: 'image',
+          title: 'Sugar & Spice Apartments',
+          location: 'Split',
+          price: 75,
+          stars: 5),
+      Homes(
+          image: 'image',
+          title: 'Lemon Luxury Apartments',
+          location: 'Saint Tropez',
+          price: 174,
+          stars: 5),
+    ];
+
     return MaterialApp(
       theme: theme,
       debugShowCheckedModeBanner: false,
@@ -59,21 +86,39 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Text(
                       'Popular locations',
-                      style: textTheme.headline5,
+                      /*style: textTheme.headline5,*/
                     ),
                     TextButton(
                       onPressed: () {},
                       child: Text(
                         'VIEW MORE',
-                        style: textTheme.button!.merge(
+                        /*style: textTheme.button!.merge(
                           TextStyle(
                             color: ThemeColors.mint400,
                           ),
-                        ),
+                        ),*/
                       ),
                     ),
                   ],
                 ),
+              ),
+              Row(
+                children: popularLocations.map((location) {
+                  return Column(
+                    children: [
+                      Card(
+                          child: Column(children: [
+                        Text(location.location),
+                        Row(
+                          children: [
+                            Text(location.numberOfProperties.toString()),
+                            Text('properties')
+                          ],
+                        )
+                      ]))
+                    ],
+                  );
+                }).toList(),
               ),
               Padding(
                 padding:
@@ -83,21 +128,47 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Text(
                       'Homes guests love',
-                      style: textTheme.headline5,
+                      /*style: textTheme.headline5,*/
                     ),
                     TextButton(
                       onPressed: () {},
                       child: Text(
                         'VIEW MORE',
-                        style: textTheme.button!.merge(
+                        /*style: textTheme.button!.merge(
                           TextStyle(
                             color: ThemeColors.mint400,
                           ),
-                        ),
+                        ),*/
                       ),
                     ),
                   ],
                 ),
+              ),
+              Row(
+                children: homes.map((home) {
+                  return Column(
+                    children: [
+                      Text(home.title),
+                      Text(home.location),
+                      Container(
+                        child: Row(children: [
+                          Text('EUR '),
+                          Text(home.price.toString())
+                        ]),
+                      ),
+                      Row(
+                        children: [
+                          for (var i = 0; i < home.stars; i++)
+                            Icon(
+                              Icons.star,
+                              color: ThemeColors.coral400,
+                              size: 16.0,
+                            ),
+                        ],
+                      )
+                    ],
+                  );
+                }).toList(),
               ),
             ],
           ),
@@ -118,63 +189,6 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class CardWidget extends StatelessWidget {
-  const CardWidget({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        children: [
-          Text(
-            'Sugar & Spice Apartments',
-            style: TextStyle(fontSize: 16.0),
-          ),
-          Text(
-            'Split',
-            style: TextStyle(color: ThemeColors.gray300, fontSize: 14.0),
-          ),
-          Text(
-            'EUR 75',
-            style: TextStyle(fontSize: 16.0),
-          ),
-          Row(
-            children: [
-              Icon(
-                Icons.star,
-                color: ThemeColors.coral400,
-                size: 16.0,
-              ),
-              Icon(
-                Icons.star,
-                color: ThemeColors.coral400,
-                size: 16.0,
-              ),
-              Icon(
-                Icons.star,
-                color: ThemeColors.coral400,
-                size: 16.0,
-              ),
-              Icon(
-                Icons.star,
-                color: ThemeColors.coral400,
-                size: 16.0,
-              ),
-              Icon(
-                Icons.star,
-                color: ThemeColors.coral400,
-                size: 16.0,
-              ),
-            ],
-          )
-        ],
       ),
     );
   }
