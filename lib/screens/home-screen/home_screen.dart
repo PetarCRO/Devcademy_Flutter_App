@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:devcademy_flutter/theme.dart';
 import 'package:devcademy_flutter/assets.dart';
+import 'package:flutter/widgets.dart';
 import '../homes.dart';
 import '../popularLocations.dart';
 
@@ -172,18 +173,31 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Row(
+              GridView.count(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                crossAxisSpacing: 20,
+                mainAxisSpacing: 20,
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                crossAxisCount: 2,
                 children: homes.map((home) {
                   return Column(
                     children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage(home.image),
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
                       Text(home.title),
                       Text(home.location),
-                      Container(
-                        child: Row(children: [
-                          Text('EUR '),
-                          Text(home.price.toString())
-                        ]),
-                      ),
+                      Row(children: [
+                        const Text('EUR '),
+                        Text(home.price.toString())
+                      ]),
                       Row(
                         children: [
                           for (var i = 0; i < home.stars; i++)
