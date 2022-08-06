@@ -47,6 +47,16 @@ final TextTheme textTheme = TextTheme(
       fontWeight: FontWeight.w500,
       height: 22,
       letterSpacing: 0.46),
+  bodyText1: GoogleFonts.roboto(
+    fontWeight: FontWeight.w600,
+    fontSize: 16,
+    color: Colors.white,
+  ),
+  bodyText2: GoogleFonts.roboto(
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+    color: Colors.white,
+  ),
 //TODO: add all text styles
 );
 

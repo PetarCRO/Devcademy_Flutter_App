@@ -12,23 +12,31 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<PopularLocations> popularLocations = [
       PopularLocations(
-          image: 'image', location: 'London', numberOfProperties: 5102),
+          image: Assets.images.london,
+          location: 'London',
+          numberOfProperties: 5102),
       PopularLocations(
-          image: 'image', location: 'Tokyo', numberOfProperties: 11251),
+          image: Assets.images.tokyo,
+          location: 'Tokyo',
+          numberOfProperties: 11251),
       PopularLocations(
-          image: 'image', location: 'Barcelona', numberOfProperties: 21104),
+          image: Assets.images.barcelona,
+          location: 'Barcelona',
+          numberOfProperties: 21104),
       PopularLocations(
-          image: 'image', location: 'New York', numberOfProperties: 1381),
+          image: Assets.images.newyork,
+          location: 'New York',
+          numberOfProperties: 1381),
     ];
     final List<Homes> homes = [
       Homes(
-          image: 'image',
+          image: Assets.images.sugar,
           title: 'Sugar & Spice Apartments',
           location: 'Split',
           price: 75,
           stars: 5),
       Homes(
-          image: 'image',
+          image: Assets.images.lemon,
           title: 'Lemon Luxury Apartments',
           location: 'Saint Tropez',
           price: 174,
@@ -114,7 +122,7 @@ class HomeScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             image: DecorationImage(
                               fit: BoxFit.cover,
-                              image: AssetImage(Assets.images.london),
+                              image: AssetImage(location.image),
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
@@ -184,12 +192,11 @@ class HomeScreen extends StatelessWidget {
                   return Column(
                     children: [
                       Container(
+                        height: 154,
+                        width: 187,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: AssetImage(home.image),
-                          ),
-                          borderRadius: BorderRadius.circular(8),
+                              image: AssetImage(home.image), fit: BoxFit.cover),
                         ),
                       ),
                       Text(home.title),
