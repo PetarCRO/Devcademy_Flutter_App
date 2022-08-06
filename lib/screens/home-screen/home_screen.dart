@@ -86,40 +86,71 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Text(
                       'Popular locations',
-                      /*style: textTheme.headline5,*/
+                      style: textTheme.headline6!
+                          .merge(TextStyle(color: ThemeColors.black)),
                     ),
                     TextButton(
                       onPressed: () {},
                       child: Text(
                         'VIEW MORE',
-                        /*style: textTheme.button!.merge(
-                          TextStyle(
-                            color: ThemeColors.mint400,
-                          ),
-                        ),*/
+                        style: TextStyle(color: ThemeColors.mint400),
                       ),
                     ),
                   ],
                 ),
               ),
-              Row(
-                children: popularLocations.map((location) {
-                  return Column(
-                    children: [
-                      Card(
-                          child: Column(children: [
-                        Text(location.location),
-                        Row(
-                          children: [
-                            Text(location.numberOfProperties.toString()),
-                            Text('properties')
-                          ],
-                        )
-                      ]))
-                    ],
-                  );
-                }).toList(),
-              ),
+              GridView.count(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 20,
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  crossAxisCount: 2,
+                  children: [
+                    ...popularLocations.map(
+                      (location) {
+                        return Container(
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage(Assets.images.london),
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 8, vertical: 16),
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                  colors: [
+                                    ThemeColors.black.withOpacity(0.3),
+                                    ThemeColors.white.withOpacity(0),
+                                  ],
+                                ),
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    location.location,
+                                    style: textTheme.bodyText1,
+                                  ),
+                                  Text(
+                                    '${location.numberOfProperties} properties',
+                                    style: textTheme.bodyText2,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ).toList(),
+                  ]),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -128,17 +159,14 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Text(
                       'Homes guests love',
-                      /*style: textTheme.headline5,*/
+                      style: textTheme.headline6!
+                          .merge(TextStyle(color: ThemeColors.black)),
                     ),
                     TextButton(
                       onPressed: () {},
                       child: Text(
                         'VIEW MORE',
-                        /*style: textTheme.button!.merge(
-                          TextStyle(
-                            color: ThemeColors.mint400,
-                          ),
-                        ),*/
+                        style: TextStyle(color: ThemeColors.mint400),
                       ),
                     ),
                   ],
