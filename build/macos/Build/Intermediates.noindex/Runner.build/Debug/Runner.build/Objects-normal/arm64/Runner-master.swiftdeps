@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)"
+options: "d587bc40a4a75e5d4ae77b2063253da7ef624d0b6946f6e8c2da19257daccb25"
+build_start_time: [1659620541, 447734832]
+build_end_time: [1659620544, 172482967]
+inputs:
+  "/Users/petarprenc/Downloads/Devcademy_Flutter_App/macos/Flutter/GeneratedPluginRegistrant.swift": [1659620514, 639136314]
+  "/Users/petarprenc/Downloads/Devcademy_Flutter_App/macos/Runner/AppDelegate.swift": [1658103130, 0]
+  "/Users/petarprenc/Downloads/Devcademy_Flutter_App/macos/Runner/MainFlutterWindow.swift": [1658103130, 0]
