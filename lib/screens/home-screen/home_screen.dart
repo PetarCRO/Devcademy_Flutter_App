@@ -185,12 +185,14 @@ class HomeScreen extends StatelessWidget {
                 height: 225,
                 width: 500,
                 child: GridView.count(
-                  physics: const NeverScrollableScrollPhysics(),
+                  physics: const ScrollPhysics(),
                   shrinkWrap: true,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20,
+                  primary: true,
+                  crossAxisSpacing: 0,
+                  mainAxisSpacing: 0,
                   padding: const EdgeInsets.symmetric(horizontal: 20),
-                  crossAxisCount: 2,
+                  crossAxisCount: 1,
+                  scrollDirection: Axis.horizontal,
                   children: homes.map((home) {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
