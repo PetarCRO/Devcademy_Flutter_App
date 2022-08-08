@@ -181,43 +181,46 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              GridView.count(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 20,
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                crossAxisCount: 2,
-                children: homes.map((home) {
-                  return Column(
-                    children: [
-                      Container(
-                        height: 154,
-                        width: 187,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage(home.image), fit: BoxFit.cover),
+              SizedBox(
+                height: 225,
+                width: 500,
+                child: GridView.count(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 20,
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  crossAxisCount: 2,
+                  children: homes.map((home) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: 154,
+                          width: 187,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(home.image),
+                                fit: BoxFit.cover),
+                          ),
                         ),
-                      ),
-                      Text(home.title),
-                      Text(home.location),
-                      Row(children: [
-                        const Text('EUR '),
-                        Text(home.price.toString())
-                      ]),
-                      Row(
-                        children: [
-                          for (var i = 0; i < home.stars; i++)
-                            Icon(
-                              Icons.star,
-                              color: ThemeColors.coral400,
-                              size: 16.0,
-                            ),
-                        ],
-                      )
-                    ],
-                  );
-                }).toList(),
+                        Text(home.title),
+                        Text(home.location),
+                        Text('EUR ${home.price}'),
+                        Row(
+                          children: [
+                            for (var i = 0; i < home.stars; i++)
+                              Icon(
+                                Icons.star,
+                                color: ThemeColors.coral400,
+                                size: 16.0,
+                              ),
+                          ],
+                        )
+                      ],
+                    );
+                  }).toList(),
+                ),
               ),
             ],
           ),
